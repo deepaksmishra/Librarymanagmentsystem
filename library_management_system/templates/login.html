@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+<div class="row justify-content-center my-5">
+    <div class="col-4 border" style="background-color: white;color: black;padding: 50px;">
+      <h1>Login</h1>
+      <form action="{% url 'login_request' %}" method="post">{% csrf_token %}
+      <div class="row my-2">
+        <div class="col">
+
+        </div>
+      </div>
+      <div class="row my-2">
+        <div class="col">
+          <label for="SigninInputEmail1">Email</label>
+          <input type="email" class="form-control" id="SigninInputEmail1" name="SigninInputEmail1">
+        </div>
+      </div>
+      <div class="row my-2">
+        <div class="col">
+          <label for="SigninInputPassword1">Password</label>
+          <input type="password" class="form-control" id="SigninInputPassword1" name="SigninInputPassword1">
+        </div>
+      </div>
+      <div class="row my-2">
+        <div class="col">
+          <button class=" btn btn-primary mt-2">Login</button>
+        </div>
+      </form>
+        <div class="row my-2">
+          <a href="{% url 'register' %}"><label>Create New Account</label></a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock body %}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container">
+    {% for book in books %}
+    <form method="POST" action="{% url 'update_request' book.id %}"> {% csrf_token %}
+
+        <input type="hidden" name="id" value="book.id" id="id">
+    <div class="row mt-4">
+        <div class="form-group col-md-12">
+            <label><i style="font-weight: bold;">Book Name</i></label>
+            <input type="text" class="form-control mt-2" name="name" placeholder="Enter name of the Book" value="{{book.name}}" required>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="form-group col-md-12">
+            <label><i style="font-weight: bold;">Author Name</i></label>
+            <input type="text" class="form-control mt-2" name="author" placeholder="Enter name of the Author" value="{{book.author}}" required>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="form-group col-md-12">
+            <label><i style="font-weight: bold;">ISBN Number</i></label>
+            <input type="number" class="form-control mt-2" name="isbn" placeholder="Enter ISBN number of the book" value="{{book.isbn}}" required>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="form-group col-md-12">
+            <label><i style="font-weight: bold;">Category</i></label>
+            <input type="text" class="form-control mt-2" name="category" placeholder="Enter Category of the book" value="{{book.category}}" required>
+        </div>
+    </div>
+        {% endfor %}
+    <button type="submit" class="btn btn-outline-primary mt-4">Update Book</button>
+</div>
+{% endblock body %}
